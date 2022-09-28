@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/a.css">
+</head>
+
+<body>
+    <header></header>
+    <section class="details">
+        <section id="det-top">
+            <!-- 顶部文字 -->
+            <div>口腔护理->口腔护理</div>
+            <!-- 左侧商品图片 -->
+            <div class="left-pic">
+                <!-- <img src="" alt=""> -->
+                <div id="mask"></div>
+            </div>
+            <div id="big-box">
+                <!-- <img src="" alt=""> -->
+            </div>
+            <div class="right-buy">
+                <div class="nam">商品名称</div>
+                <div>商品编号：<span class="numb">编号</span></div>
+                <div class="col-num">
+                    <section>
+                        <div>官方建议零售价：￥<span class="pric"></span></div>
+                        <div>登录注册会员即可享受会员价</div>
+                    </section>
+                    <section class="_color">
+                        款式： <button id="btn1"></button><button id="btn2"></button>
+                    </section>
+                    <section class="_number">
+                        数量：
+                        <span>
+                            <button id="redbtn"> - </button>
+                            <span id="num">1</span>
+                            <button id="addbtn"> + </button>￥
+                        </span>
+                        &emsp; 库存：
+                        <span class="kucun"></span>
+                    </section>
+                    <span class="joincart">
+                        <span id="car">加入购物车</span>
+                        <span id="buy">立即购买</span>
+                    </span>
+                </div>
+            </div>
+            <ul>
+                <li class="lis"></li>
+                <li class="lis"></li>
+                <li class="lis"></li>
+            </ul>
+        </section>
+        <section id="det-bot">
+            <div>商品详情</div>
+            <div><img src="img/details00.jpg" alt=""></div>
+            <div><img src="img/details01.jpg" alt=""></div>
+            <div><img src="img/details02.jpg" alt=""></div>
+            <div><img src="img/details03.jpg" alt=""></div>
+            <div><img src="img/details04.jpg" alt=""></div>
+            <div><img src="img/details05.jpg" alt=""></div>
+            <div><img src="img/details06.jpg" alt=""></div>
+            <div><img src="img/details07.jpg" alt=""></div>
+        </section>
+    </section>
+    <footer></footer>
+    <section class="side"></section>
+
+
+</body>
+
+</html>
+<script src="js/jQuery.js"></script>
+<script src="js/details.js"></script>
+<script>
+    $("header").load("./a/header.html");
+    $("footer").load("footer.html");
+    $(".side").load("side.html");
+
+    $(function () {
+
+        let [, goodsId] = location.search.substring(1).split("=");
+
+        $.get("php/getGoodsInfo.php", {
+            goodsId: goodsId
+        }, function (resText) {
+            // $("#car").click(() => {
+            // sessionStorage.setItem('goodsId', resText)
+            // })
+
+            let res = JSON.parse(resText)
+            $(".nam").html(res.goodsName);
+            $(".numb").html(res.beiyong2);
+            $(".pric").html(res.goodsPrice);
+            $(".kucun").html(res.beiyong1);
+            $("#btn1").html(res.beiyong5);
+            $("#btn2").html(res.beiyong6);
+            if (res.beiyong1 == "缺货") {
+                $(".kucun").css({
+                    "color": "red"
+                })
+                $(".joincart #car").css({
+                    "backgroundColor": "#777777"
+                })
+                $(".joincart #buy").css({
+                    "backgroundColor": "#777777"
+                })
+
+                $(".joincart #car").css({
+                    "border-right": "1px solid #F4F4F4"
+                })
+            }
+            let oSmallBox = document.querySelector(".left-pic");
+            let oMask = document.querySelector("#mask");
+            let oBigBox = document.querySelector("#big-box");
+            let oLis = document.getElementsByClassName("lis")
+            let mf = new MF(oSmallBox, oMask, oBigBox, res, oLis);
+            // console.log(res)
+        })
+
+    }, "json")
+</script>

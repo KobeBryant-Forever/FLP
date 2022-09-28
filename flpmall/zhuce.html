@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+    <title>注册</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/zhuce.css">
+</head>
+
+<body>
+    <header></header>
+
+    <section class="zc-Ban">
+        <img src="img/zcBanner.jpg" alt="">
+        <div id="zc-box">
+            <div>欢迎注册</div>
+            <form action="">
+                <div>用户名：&emsp;&emsp;&emsp;<input type="text" id="username">
+                    <span id="showUser"></span>
+                </div>
+                <div>密码：&emsp;&emsp;&emsp;&emsp;<input type="password" id="userpass">
+                    <span id="showPass"></span>
+                </div>
+                <div>再次确认密码：<input type="password" id="userpass2">
+                    <span id="showPassAgain"></span>
+                </div>
+                <section>
+                    <input type="checkbox" id="check">&nbsp; 我已阅读并同意飞利浦健康生活俱乐部<a>《会员服务协议》</a>及<a>《隐私政策》</a>
+                    <span id="showcheck"></span>
+                </section>
+
+                <section>
+                    已有账号?<a href="login.html"> 登录</a>
+                </section>
+                <input type="button" value="注册" id="zcbtn">
+                <span id="messageBox" style="text-align: center;">
+                </span>
+            </form>
+        </div>
+    </section>
+    <footer></footer>
+    <section class="side"></section>
+
+
+</body>
+
+</html>
+<script src="js/jQuery.js"></script>
+<script src="js/zhuce.js"></script>
+<script>
+    $("header").load("./a/header.html");
+    $("footer").load("footer.html");
+    $(".side").load("side.html");
+</script>

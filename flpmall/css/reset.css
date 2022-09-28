@@ -1,0 +1,47 @@
+/* =====================这个文件专门是用来重置（清除）样式的 */
+
+
+/* 清除所有标签自带的间距 */
+*{
+    padding: 0;
+    margin: 0;
+}
+/* 清除标签自带的下划线 */
+
+
+a,u{
+    text-decoration: none;
+}
+/* 让加粗标签不加粗  回归到正常 */
+b,strong{
+    font-weight: 400;
+}
+/* 让倾斜标签回归正常 */
+i,em{
+    font-style: normal;
+}
+/* 取消列表自带的列表符号 */
+ul,ol{
+    list-style: none;
+}
+/* 让标题标签回归正常 */
+h1,h2,h3,h4,h5,h6{
+    font-weight: 400;
+    font-size: 16px;
+}
+input{
+    /*轮廓线 清除鼠标点击之后的高亮效果 */
+    outline: none;
+    /* 清除边框线 */
+    border: none;
+}
+ /*万能清除法*/
+ .clear_fix::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 8;
+    overflow: hidden;
+    visibility: hidden;
+    clear: both;
+}

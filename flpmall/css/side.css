@@ -1,0 +1,69 @@
+.side .four {
+    height: 280px;
+    width: 70px;
+    /* background-color: orange; */
+    position: fixed;
+    right: 0;
+    bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between;
+    padding: 15px 0;
+    background-color: white;
+}
+
+.side img {
+    width: 24px;
+    height: 24px;
+}
+
+.side a {
+    color: rgb(136, 134, 134);
+    font-size: 12px;
+}
+
+.ewm {
+    /* background-color: orange; */
+    position: fixed;
+    right: 70px;
+    bottom: 206px;
+    display: none;
+}
+
+.gwc {
+    font-size: 12px;
+    color: rgb(136, 134, 134);
+    cursor: pointer;
+    position: relative;
+}
+
+.gwc #red_point {
+    height: 15px;
+    width: 15px;
+    border-radius: 50% 50% 50% 0;
+    background-color: red;
+    font-size: 10px;
+    color: white;
+    text-align: center;
+    line-height: 15px;
+    position: absolute;
+    top: -5px;
+    right: 17px;
+    display: none;
+}
+
+.backtop {
+    text-align: center;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 70px;
+    height: 80px;
+    /* line-height: 50px; */
+    background-color: white;
+    display: none;
+    position: fixed;
+    right: 0;
+    bottom: 20px;
+    transition: all 1s;
+}

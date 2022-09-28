@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+    <title>购物车</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/1.css">
+</head>
+
+<body>
+    <header></header>
+    <section class="shopcart">
+        <div id="cart-top">
+            <div class="line" style="border-color: #2B86B2;"></div>
+            <div class="ball" style="background-color: #2B86B2;">1</div>
+            <div class="word" style="color: #2B86B2;">查看购物车</div>
+        </div>
+        <div id="cart-top">
+            <div class="line"></div>
+            <div class="ball">2</div>
+            <div class="word">确认订单信息</div>
+        </div>
+        <div id="cart-top">
+            <div class="line"></div>
+            <div class="ball">✓</div>
+            <div class="word">提交并付款</div>
+        </div>
+        <div class="empty-cart">您的购物车是空的哦，请选择导航栏上的商品分类马上开始您的购物之旅吧~</div>
+        <div class="cartlist-box">
+            <div class="cartlist-top">
+                <span>商品名称</span>
+                <span>会员价</span>
+                <span>订购数量</span>
+                <span>金额小计</span>
+                <span>操作</span>
+            </div>
+            <ul class="cartgoodslist">
+                <!-- <li>
+                    <input type="checkbox" id="choice">
+                    <span id="goods-img">
+                        <img src="img/001.jpg" alt="">
+                    </span>
+                    <span id="goodsnameAndstyle">
+                     <div id="goods-name"></div>
+                     <div id="goods-style"></div>
+                    </span>
+                    <span id="goodsprice-box">
+                  ￥<span id="goods-price">899</span>
+                    </span>
+                    <span id="goodsnum-box">
+                    <span id="min"> - </span>
+                    <input type="text" value="1">
+                    <span id="add"> + </span>
+                    </span>
+                    <span id="single-subtotal-box">
+                        ￥<span id="single-subtotal">899</span>
+                    </span>
+                    <span id="del-box">
+                        <img src="img/del.png" alt="">
+                    </span>
+                </li> -->
+            </ul>
+            <div class="cartlist-bottom">
+                <input type="checkbox" id="choiceAll" checked>
+                <span><a href="javascript:;" id="selectAll">全选</a></span>
+                <!-- <span><a href="javascript:;" id="delgoods">删除选中的商品</a></span> -->
+                <span>共&nbsp;<span id="sub_num"></span>&emsp;&nbsp;件商品</span>
+                <span>商品总价：￥<span id="sub-price"></span></span>
+
+                <span>合计：￥<span id="sub_price"></span></span>
+            </div>
+            <div class="settle">去结算</div>
+            <div class="settle1">退出登录</div>
+        </div>
+    </section>
+    <footer></footer>
+    <section class="side"></section>
+</body>
+
+</html>
+<script src="js/jQuery.js"></script>
+<script src="js/cart.js"></script>
+<script>
+    $("header").load("./a/header.html");
+    $("footer").load("footer.html");
+    $(".side").load("side.html");
+</script>
