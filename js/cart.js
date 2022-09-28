@@ -90,6 +90,7 @@ function getCart() {
             let subprice = 0;
             let subnum = 0;
             data.forEach(goods => {
+                //总价
                 let singlesub = goods.goodsPrice * goods.goodsCount;
                 subprice += singlesub;
                 subnum += goods.goodsCount / 1;
@@ -155,11 +156,12 @@ function reduce(btn, goodsId) {
 }
 //合计
 function tomoney() {
-
     let totalmoney = 0;
     let totalnum = 0;
+    //获取框里面的数字
     let oxiaoji = $(".single-subtotal-box");
     let olinum = $(".goodsnum");
+    //遍历
     for (let i = 0; i < oxiaoji.length; i++) {
         console.log("oxiaoji.length", oxiaoji.length)
         totalmoney += parseInt(oxiaoji[i].innerHTML)
@@ -183,13 +185,14 @@ function add(btn, goodsId) {
         goodsId: '00' + goodsId,
         goodsCount: count,
     },
+        //加的时候小计和总价都跟着变
         function (res) {
             if (res.trim() == 1) {
-
+                //数量
                 btn.previousElementSibling.innerHTML = count;
-
+                //单价
                 let price = parseInt(btn.parentNode.previousElementSibling.innerHTML.substring(1));
-
+                //小计
                 let xiao_ji = price * count;
                 btn.parentNode.nextElementSibling.nextElementSibling.innerHTML = xiao_ji;
                 console.log("vipName", sessionStorage.getItem('username'))

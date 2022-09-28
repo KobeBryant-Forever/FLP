@@ -27,9 +27,7 @@ class MF {
         this.oSmallBox.style.backgroundImage = `url(${this.resText.goodsImg})`;
         this.oBigBox.style.backgroundImage = `url(${this.resText.goodsImg})`;
     }
-
-
-
+    //鼠标移动放大镜的是时候显示放大镜和显示放大的地方
     mouseover() {
         let that = this;
         this.oSmallBox.onmouseover = function () {
@@ -37,7 +35,7 @@ class MF {
             that.oBigBox.style.display = "block";
         }
     }
-
+    //鼠标离开图片放大镜和显示的区域都隐藏
     mouseout() {
         let that = this;
         this.oSmallBox.onmouseout = function () {
@@ -52,7 +50,7 @@ class MF {
             let e = evt || event;
             let left = e.pageX - that.oMask.offsetWidth / 2 - this.offsetLeft;
             let top = e.pageY - that.oMask.offsetHeight / 2 - that.oSmallBox.offsetTop;
-            //判断
+            //判断，显示放大镜的移动范围，避免跑出图片区域
             if (left < 0) {
                 left = 0;
             }
@@ -70,12 +68,13 @@ class MF {
                 top = maxTop;
             }
 
+
             let x = left * that.oBigBox.offsetWidth / that.oMask.offsetWidth;
             let y = top * that.oBigBox.offsetHeight / that.oMask.offsetHeight;
 
             that.oMask.style.left = left + "px";
             that.oMask.style.top = top + "px";
-
+            //放大图片的位置
             that.oBigBox.style.backgroundPositionX = -x + "px";
             that.oBigBox.style.backgroundPositionY = -y + "px";
         }
@@ -126,6 +125,7 @@ $("#car").click(() => {
         location.href = "cart.html"
     }
 })
+//用户点击购买的时候需要判断登录状态
 $("#buy").click(() => {
     if (sessionStorage.getItem("username") == null) {
         alert("请先登录!")
@@ -139,6 +139,7 @@ $("#buy").click(() => {
         location.href = "cart.html"
     }
 })
+//限制减的时候最低只能减到一
 let count = 1;
 
 //数量减
@@ -152,6 +153,7 @@ function reduceNum(btn) {
 }
 //数量加
 function addNum(btn) {
+    //避免出现精度丢失
     let count = parseInt(btn.previousElementSibling.innerHTML)
     count++;
     btn.previousElementSibling.innerHTML = count;
